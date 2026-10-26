@@ -170,17 +170,35 @@ body.intro .mast-art,body:not(.intro) .mast-art{display:block}
 
 /* welcome / onboarding */
 .welcome{padding-block:20px 30px;display:flex;flex-direction:column;gap:18px}
-.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;position:relative}
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;position:relative}
 .flow li{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;opacity:.75;position:relative}
-.flow li+li::before{content:"";position:absolute;left:-14px;top:50%;width:14px;height:2px;background:var(--line)}
+.flow li+li::before{content:"";position:absolute;left:-16px;top:50%;width:16px;height:2px;background:var(--line)}
 .flow li.on{opacity:1;border-color:var(--navy);box-shadow:0 10px 24px -16px rgba(15,45,85,.55)}
 .flow li i{flex:none;width:34px;height:34px;border-radius:50%;background:var(--sunk);color:var(--muted);font-style:normal;font-family:var(--f-display);font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}
 .flow li.on i{background:var(--navy);color:#fff;border-color:var(--navy)}
 .flow b{display:block;font-size:14px;line-height:1.15}
 .flow span{display:block;font-size:12px;color:var(--muted);line-height:1.25;margin-top:2px}
 @media (max-width:640px){.flow{gap:8px}.flow li+li::before{display:none}.flow li{flex-direction:column;align-items:flex-start;gap:6px;padding:9px 10px}.flow li i{width:24px;height:24px;font-size:12px}.flow b{font-size:12px}.flow span{display:none}.flow li.on span{display:block}}
-.wgrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);gap:16px;align-items:start}
-@media (max-width:820px){.wgrid{grid-template-columns:1fr}}
+.wgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+.wgrid > .formcard{grid-column:span 2}
+.wgrid > .side{display:flex;flex-direction:column;gap:16px}
+.wgrid > .side > .scard:last-child{flex:1;display:flex;flex-direction:column}
+.wgrid > .side > .scard:last-child .ways{flex:1;justify-content:space-between}
+.wgrid > .side > .scard:last-child .ways > div{flex:1}
+@media (max-width:980px){.wgrid{grid-template-columns:1fr}.wgrid > .formcard{grid-column:auto}}
+/* formulario: medidas parejas */
+.welcome .formcard{gap:16px}
+.welcome .formcard .btn.go{margin-top:auto;min-height:54px}
+.welcome .drog-h{align-items:center}
+.welcome .drow{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px;align-items:start}
+.welcome .drow > label:first-child{grid-column:auto}
+@media (max-width:559px){.welcome .drow{grid-template-columns:1fr!important}}
+.welcome .drow .rm{display:none}
+.welcome .drow label{gap:6px;line-height:1.2}
+.welcome .drow label > span{display:block;min-height:15px}
+.welcome .drog .drow select,.welcome .drog .drow input{height:50px;box-sizing:border-box;border-radius:12px;font-size:16px;padding-top:0!important;padding-bottom:0!important;width:100%}
+.welcome .status{min-height:46px;display:flex;align-items:center}
+.welcome .bchip{min-height:132px}
 .formcard{position:relative;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 18px 40px -24px rgba(14,26,45,.5);overflow:hidden}
 .fc-art{position:absolute;right:0;top:0;width:min(44%,250px);height:auto;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%),linear-gradient(180deg,#000 70%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 22%),linear-gradient(180deg,#000 70%,transparent 100%);mask-composite:intersect}
 @media (max-width:640px){.fc-art{width:36%;opacity:.9}}
